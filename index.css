@@ -1,64 +1,190 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
 }
-body{
+
+body {
     background-color: #fff;
+    
+}
+
+header {
+    background-color: #2563eb;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.098);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 38px;
+        color: #fff;
+        margin-left: -60px;
+        border-radius: 10px;
+        animation: lever 1.2s ease infinite;
+    }
+}
+
+@keyframes lever {
+    0% { transform: translateY(0); }
+    100% {
+        transform: translateY(-3px);
+        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.phrase {
+    margin-top: 130px;
+    margin-bottom: 20px;
+
+    p {
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 24px;
+        background-color: #eee;
+        margin: 15px;
+        padding: 10px;
+        border-radius: 10px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        animation: srolliste 1s ease;
+
+        span {
+            color: red;
+            font-weight: 600;
+        }
+    }
+}
+
+#zoneMesses {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+    margin: 10px;
+    animation: srolliste 1.1s ease;
+}
+@keyframes srolliste {
+    0%{
+        transform: scale(0.7);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
 
 .carte {
-    background: linear-gradient(#fff);
-    margin: 10px;
+    background: #fff;
     padding: 10px;
-    border-radius: 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px 15px;
-    justify-content: center;
-    border: 4px solid rgb(0, 0, 255, 0.089);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.098);
-    
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.098);
 
-    iframe{
+    iframe {
         width: 100%;
         height: 40vh;
         border-radius: 8px;
         background-color: #000;
         border: none;
     }
+}
+
+.grid-generale {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.grid-id {
+    padding: 5px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    h2 {
+        text-transform: uppercase;
+        color: #000;
+        font-size: 28px;
+        user-select: none;
+    }
 
     p {
-        font-weight: 500;
-        font-size: 30px;
-        text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.4);
-        margin-bottom: 3px;
+        font-size: 28px;
+        color: #333;
+        text-shadow: 0 1px 1px black;
+        user-select: none;
     }
 
     a {
         display: inline-block;
+        font-size: 28px;
+        text-transform: uppercase;
         text-decoration: none;
-        text-transform: capitalize;
-        margin: 3px;
-        color: #0011ff;
-        font-size: 30px;
-        border: 1px solid;
-        width: 155px;
-        text-align: center;
-        border-radius: 10px;
+        background-color: #eee;
         padding: 5px;
-        font-weight: 500;
-    }
-    a:active{
-        background-color: #0011ff;
-        color: white;
-    }
+        color: #2563eb;
+        user-select: none;
 
-    h1 {
-        text-transform: capitalize;
-        color: blue;
-        font-size: 40px;
-        text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.4);
+        &:active {
+            background-color: #2563eb;
+            color: #fff;
+        }
     }
 }
 
+.grid-id2 {
+    padding: 5px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    p {
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.3);
+        text-shadow: 0 1px 1px black;
+        user-select: none;
+    }
+
+    .adresse {
+        padding: 5px;
+        user-select: auto;
+    }
+}
+
+@media (min-width: 700px) {
+    #zoneMesses {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .carte iframe{
+        width: 100%;
+        height: 80vh;
+        border-radius: 8px;
+        background-color: #000;
+        border: none;
+    }
+}
+@media (min-width: 1024px) {
+    #zoneMesses {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .carte iframe{
+        width: 100%;
+        height: 80vh;
+        border-radius: 8px;
+        background-color: #000;
+        border: none;
+    }
+}

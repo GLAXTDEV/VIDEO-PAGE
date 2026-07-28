@@ -13,8 +13,17 @@ async function template() {
         cree.innerHTML = `
         <iframe src="${urlIframe}" allow="autoplay" allowfullscreen>
         </iframe>
-        <h1>${element.nom}</h1> <p>${element.date}</p>
-        <a href="${urlTelechargement}">telecharge</a>
+        <div class="grid-generale">
+            <div class="grid-id">
+                <h2>${element.nom}</h2> 
+                <p>${element.date}</p> 
+                <a href="${urlTelechargement}">telecharge</a>
+            </div>
+            <div class= "grid-id2">
+                <p>by: ${element.par}</p>
+                <p class="adresse">line: ${element.son_adresse}</p>
+            </div>
+        </div>
         `;
         Affichage.appendChild(cree);
 
