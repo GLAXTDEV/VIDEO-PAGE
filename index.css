@@ -30,6 +30,7 @@ header {
         margin: 0 auto;
         border-radius: 10px;
         animation: lever 1.2s ease infinite;
+        user-select: none;
     }
 }
 
@@ -55,6 +56,7 @@ header {
         text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
         box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         animation: srolliste 1s ease;
+        user-select: none;
 
         span {
             color: red;
@@ -139,6 +141,7 @@ header {
         color: #333;
         text-shadow: 0 1px 1px black;
         user-select: none;
+        text-wrap: nowrap;
     }
 
     a {
@@ -171,6 +174,7 @@ header {
         color: rgba(0, 0, 0, 0.3);
         text-shadow: 0 1px 1px black;
         user-select: none;
+        text-wrap: nowrap;
     }
 
     .adresse {

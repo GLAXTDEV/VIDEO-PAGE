@@ -11,18 +11,18 @@ async function template() {
         const Affichage = document.querySelector('#zoneMesses');
         cree.classList = "carte";
         cree.innerHTML = `
-        <iframe src="${urlIframe}" allow="autoplay">
+        <iframe src="${urlIframe}" allow="autoplay" allowfullscreen>
         </iframe>
         <div class="point"><span></span></div>
         <div class="grid-generale">
             <div class="grid-id">
                 <h2>${element.nom}</h2> 
-                <p>${element.date}</p> 
+                <p>${element.date}</p>
                 <a href="${urlTelechargement}">telecharge</a>
             </div>
             <div class= "grid-id2">
                 <p>by: ${element.par}</p>
-                <p class="adresse">line: ${element.son_adresse}</p>
+                <p class="adresse">${element.son_adresse}</p>
             </div>
         </div>
         `;
