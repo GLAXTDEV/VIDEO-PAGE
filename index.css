@@ -9,27 +9,30 @@ body{
 
 .carte {
     background: linear-gradient(#fff);
-    margin: 20px;
+    margin: 10px;
     padding: 10px;
     border-radius: 18px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px 15px;
     justify-content: center;
     border: 4px solid rgb(0, 0, 255, 0.089);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.098);
     
 
     iframe{
         width: 100%;
-        height: 300px;
-        border-radius: 10px;
+        height: 40vh;
+        border-radius: 8px;
         background-color: #000;
         border: none;
     }
 
     p {
         font-weight: 500;
+        font-size: 30px;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.4);
+        margin-bottom: 3px;
     }
 
     a {
@@ -37,17 +40,25 @@ body{
         text-decoration: none;
         text-transform: capitalize;
         margin: 3px;
-        color: #000;
+        color: #0011ff;
+        font-size: 30px;
+        border: 1px solid;
+        width: 155px;
+        text-align: center;
+        border-radius: 10px;
+        padding: 5px;
+        font-weight: 500;
+    }
+    a:active{
+        background-color: #0011ff;
+        color: white;
     }
 
-    h3 {
+    h1 {
         text-transform: capitalize;
         color: blue;
+        font-size: 40px;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.4);
     }
 }
-@media (width >500px) {
-    #zoneMesses{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+
