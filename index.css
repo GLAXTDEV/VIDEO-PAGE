@@ -11,7 +11,7 @@ body {
 }
 
 header {
-    background-color: #2563eb;
+    background-color: rgb(37, 99, 235, 1);
     position: fixed;
     top: 0;
     left: 0;
@@ -27,7 +27,7 @@ header {
         text-transform: uppercase;
         font-size: 38px;
         color: #fff;
-        margin-left: -60px;
+        margin: 0 auto;
         border-radius: 10px;
         animation: lever 1.2s ease infinite;
     }
@@ -36,8 +36,7 @@ header {
 @keyframes lever {
     0% { transform: translateY(0); }
     100% {
-        transform: translateY(-3px);
-        text-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-3.2px) ;
     }
 }
 
@@ -86,6 +85,7 @@ header {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.098);
+    position: relative;
 
     iframe {
         width: 100%;
@@ -94,6 +94,21 @@ header {
         background-color: #000;
         border: none;
     }
+}
+.point{
+    backdrop-filter: transparent;
+    padding: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 0 0  0 50px;
+    position: absolute;
+    z-index: 22;
+    top: 15px;
+    right: 15px;
+    opacity: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-generale {
@@ -175,6 +190,7 @@ header {
         background-color: #000;
         border: none;
     }
+
 }
 @media (min-width: 1024px) {
     #zoneMesses {
@@ -187,4 +203,5 @@ header {
         background-color: #000;
         border: none;
     }
+
 }

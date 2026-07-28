@@ -11,8 +11,9 @@ async function template() {
         const Affichage = document.querySelector('#zoneMesses');
         cree.classList = "carte";
         cree.innerHTML = `
-        <iframe src="${urlIframe}" allow="autoplay" allowfullscreen>
+        <iframe src="${urlIframe}" allow="autoplay">
         </iframe>
+        <div class="point"><span></span></div>
         <div class="grid-generale">
             <div class="grid-id">
                 <h2>${element.nom}</h2> 
