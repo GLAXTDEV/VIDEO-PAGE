@@ -7,7 +7,21 @@
 
 body {
     background-color: #fff;
-    
+}
+.mode{
+    background-color: #333;
+}
+#modeBouton{
+    width: 60px; height: 60px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 8px 10px rgb(0, 0, 0, 0.098);
+    padding: 5px;
+    i{
+        font-size: 35px;
+        color: rgb(255, 255, 255, 0.8);
+    }
 }
 
 header {
@@ -32,6 +46,9 @@ header {
         animation: lever 1.2s ease infinite;
         user-select: none;
     }
+}
+.mode header{
+    background-color: #333;
 }
 
 @keyframes lever {
@@ -62,6 +79,12 @@ header {
             color: red;
             font-weight: 600;
         }
+    }
+}
+.mode .phrase{
+    p{
+        background-color: #333;
+        color: #eee;
     }
 }
 
@@ -97,8 +120,13 @@ header {
         border: none;
     }
 }
+.mode .carte{
+    background-color: #333;
+    box-shadow: inset 2px 1px 1px rgb(0, 0, 0, 0.5),
+                inset -2px -1px 1px 1px rgb(0, 0, 0, 0.5);
+}
 .point{
-    backdrop-filter: transparent;
+    backdrop-filter: blur(12px);
     padding: 20px;
     width: 70px;
     height: 70px;
@@ -111,6 +139,17 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+        color: #fff;
+        height: 20px; width: 20px;
+        border-radius: 50%;
+        user-select: none;
+        pointer-events: none;
+    }
 }
 
 .grid-generale {
@@ -160,7 +199,18 @@ header {
         }
     }
 }
-
+.mode .grid-id{
+    h2{
+        color: #fff;
+    }
+    p{
+        color: #eee;
+    }
+    a{
+        color: yellow;
+        background-color: #000;
+    }
+}
 .grid-id2 {
     padding: 5px 8px;
     display: flex;
@@ -171,8 +221,7 @@ header {
 
     p {
         font-size: 18px;
-        color: rgba(0, 0, 0, 0.3);
-        text-shadow: 0 1px 1px black;
+        color: rgba(0, 0, 0, 0.8);
         user-select: none;
         text-wrap: nowrap;
     }
@@ -180,6 +229,12 @@ header {
     .adresse {
         padding: 5px;
         user-select: auto;
+    }
+}
+.mode .grid-id2{
+    p{
+        color: #eee;
+        box-shadow: none;
     }
 }
 
@@ -209,3 +264,4 @@ header {
     }
 
 }
+

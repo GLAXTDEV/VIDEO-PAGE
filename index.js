@@ -13,7 +13,7 @@ async function template() {
         cree.innerHTML = `
         <iframe src="${urlIframe}" allow="autoplay" allowfullscreen>
         </iframe>
-        <div class="point"><span></span></div>
+        <div class="point"><span>${element.number}</span></div>
         <div class="grid-generale">
             <div class="grid-id">
                 <h2>${element.nom}</h2> 
@@ -32,3 +32,9 @@ async function template() {
 };
 
 template()
+
+const btn = document.querySelector('#modeBouton');
+btn.addEventListener('click', ()=>{
+    const bodi = document.body;
+    bodi.classList.toggle('mode');
+});
