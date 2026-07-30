@@ -14,7 +14,7 @@ async function template() {
             <br>
             <div class="grid-generale">
                 <div class="grid-id">
-                    <h2>${element.nom}</h2> 
+                    <h3>${element.nom}</h3> 
                     <p>${element.date}</p>
                 </div>
                 <div class="grid-id2">
