@@ -111,10 +111,11 @@ header {
 
 .carte {
     background: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.098);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px 4px rgb(0, 0, 0, 0.1);
     position: relative;
-
+    margin-left: -6px;
+    border: 1px solid rgb(51, 51, 51, 0.4);
     iframe {
         width: 100%;
         height: 35ex;
@@ -122,14 +123,13 @@ header {
         border-radius: 10px;
         border: none;
         box-shadow: none;
-
     }
 }
 .mode .carte{
     background-color: #333;
 }
 .point{
-    background-color: black;
+    background-color: rgb(2, 2, 2, 0.7);
     padding: 10px;
     width: 15px;
     height: 15px;
@@ -161,9 +161,9 @@ header {
     justify-content: flex-start;
     align-items: flex-start;
 
-    h3 {
-        text-transform: capitalize;
-        color: #000;
+    .P1 {
+        text-transform: uppercase;
+        color: #000000;
         user-select: none;
     }
 
@@ -171,6 +171,9 @@ header {
         color: #333;
         user-select: none;
         text-wrap: nowrap;
+        background-color: #eee;
+        border-radius: 5px;
+        padding: 3px;
     }
 
     a {
@@ -189,11 +192,13 @@ header {
     }
 }
 .mode .grid-id{
-    h2{
+    .P1{
         color: #fff;
+        background-color: #000;
     }
     p{
         color: #eee;
+        background-color: #000;
     }
     a{
         color: yellow;
@@ -206,17 +211,21 @@ header {
     gap: 5px;
     justify-content: flex-start;
     align-items: flex-end;
-
     p {
         font-size: 10px;
-        color: rgba(0, 0, 0, 0.09);
+        color: rgba(0, 0, 0, 0.7);
         user-select: none;
         text-wrap: nowrap;
+        border: 1px solid rgb(0, 0, 0, 0.4);
+        border-radius: 5px;
+        padding: 5px;
     }
 
     .adresse {
         padding: 5px;
         user-select: auto;
+        border: 1px solid rgb(0, 0, 0, 0.4);
+        border-radius: 5px;
     }
 }
 .mode .grid-id2{
@@ -234,9 +243,8 @@ header {
     }
     .carte iframe{
         width: 100%;
-        height: 60vh;
+        height: 50vh;
         border-radius: 8px;
-        background-color: #000;
         border: none;
     }
 
@@ -247,9 +255,8 @@ header {
     }
     .carte iframe{
         width: 100%;
-        height: 60vh;
+        height: 50vh;
         border-radius: 8px;
-        background-color: #000;
         border: none;
     }
 

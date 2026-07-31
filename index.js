@@ -14,11 +14,12 @@ async function template() {
             <br>
             <div class="grid-generale">
                 <div class="grid-id">
-                    <h3>${element.nom}</h3> 
+                    <p class="P1">${element.nom}</p> 
                     <p>${element.date}</p>
                 </div>
+                
                 <div class="grid-id2">
-                <p>BY|${element.par}|</p>
+                    <p>By ${element.par}</p>
                     <p class="adresse">${element.son_adresse}</p>
                 </div>
             </div>
