@@ -18,7 +18,7 @@ async function template() {
                     <p>${element.date}</p>
                 </div>
                 <div class="grid-id2">
-                    <p>by: ${element.par}</p>
+                <p>BY|${element.par}|</p>
                     <p class="adresse">${element.son_adresse}</p>
                 </div>
             </div>
