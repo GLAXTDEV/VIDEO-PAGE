@@ -134,9 +134,9 @@ header {
     background-color: #333;
 }
 .point{
-    background-color: rgb(2, 2, 2, 0.7);
-    width: 24px;
-    height: 24px;
+    background-color: rgb(2, 2, 2, 0.0);
+    width: auto;
+    height: auto;
     border-radius: 50%;
     position: absolute;
     z-index: 22;
