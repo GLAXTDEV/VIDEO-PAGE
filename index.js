@@ -11,13 +11,12 @@ async function template() {
         cree.innerHTML = `
             <iframe src="${urlIframe}" allow="autoplay; encrypted-media; picture-in-picture; gyroscope; accelerometer" allowfullscreen></iframe>
             <div class="point"><span>${element.number}</span></div>
-            <br>
+
             <div class="grid-generale">
                 <div class="grid-id">
                     <p class="P1">${element.nom}</p> 
                     <p>${element.date}</p>
                 </div>
-                
                 <div class="grid-id2">
                     <p>By ${element.par}</p>
                     <p class="adresse">${element.son_adresse}</p>
