@@ -1,6 +1,6 @@
 [
     {
-        "nom": "bonne qualité de vidéos !(obligatoire à regardé comment faire)",
+        "titre": "Faite ça 👆☝️",
         "date": "12/02/2023",
         "videoID": "iG8zVcxriOw",
         "par": "DEV WEB",
@@ -8,83 +8,83 @@
         "number": "*"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "08/10/2024",
         "videoID": "566QEvq73eA",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "1"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "03/03/2026",
         "videoID": "-85pZ8LvGIQ",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "2"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "05/16/2012",
         "videoID": "QMv_N312oM0",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "3"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "05/16/2026",
         "videoID": "E1n3qKEAPI4",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "4"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "05/26/2026",
         "videoID": "WO3AKQ84R2s",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "5"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "05/11/2014",
         "videoID": "hmJJwnmv-Zs",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "6"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "05/01/2019",
         "videoID": "6r4DhklLpQs",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "7"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "05/01/2019",
         "videoID": "kXJGbyP26yA",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "8"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "05/11/2019",
         "videoID": "7VegXwjMAyo",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "9"
     },
     {
-        "nom": "titre",
+        "titre": "titre",
         "date": "02/08/2026",
         "videoID": "beG_jILqpiM",
         "par": "correcteur",
-        "son_adresse": "+228 99YGYXUU",
+        "son_adresse": "correcteur@exemple.com",
         "number": "10"
     }
 ]
