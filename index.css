@@ -182,6 +182,9 @@ header{
 .carte:first-child .titre{
     color: #fff;
 }
+.sombre .carte:first-child{
+    background: #000FAF;
+}
 
 .carte{
     background-color: rgb(255, 255, 255, 1);
