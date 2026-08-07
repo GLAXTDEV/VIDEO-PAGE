@@ -172,8 +172,19 @@ header{
     background-color: #000;
     border-radius: 8px;
     user-select: none;
-    margin: 1px;
+    margin: 0px;
 }
+/* Cibler le titre h2 de la toute première carte */
+.carte:first-child{
+    background: darkblue;
+}
+.carte:first-child .titre{
+    color: #fff;
+}
+.sombre .carte:first-child{
+    background: #000FAF;
+}
+
 .carte{
     background-color: rgb(255, 255, 255, 1);
     display: flex;
@@ -212,7 +223,7 @@ header{
     transform: scale(1.4);
     color: cyan;
     background-color: transparent;
-    transition: all 0.1s ease;
+    transition: all 0.01s ease;
 }
 @media (width > 600px) {
     .carte:hover .point{
