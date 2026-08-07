@@ -176,7 +176,7 @@ header{
 }
 /* Cibler le titre h2 de la toute première carte */
 .carte:first-child{
-    background-color: #0a6066;
+    background-color: #FF005D;
 }
 .carte:first-child .titre{
     color: #ffffff;
