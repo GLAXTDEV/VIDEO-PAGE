@@ -7,7 +7,7 @@
 
 body{
     height: 100vh;
-    background-color: #fcfcfc;
+    background-color: #fff;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -176,14 +176,12 @@ header{
 }
 /* Cibler le titre h2 de la toute première carte */
 .carte:first-child{
-    background: darkblue;
+    background-color: #0a6066;
 }
 .carte:first-child .titre{
-    color: #fff;
+    color: #ffffff;
 }
-.sombre .carte:first-child{
-    background: #000FAF;
-}
+
 
 .carte{
     background-color: rgb(255, 255, 255, 1);
@@ -191,7 +189,7 @@ header{
     flex-direction: column;
     justify-content: center;
     margin: 0px auto 15px;
-    box-shadow: 0 2px 4px rgb(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgb(0, 0, 0, 0.1);
     position: relative;
     border-radius: 8px;
     width: 100%;
