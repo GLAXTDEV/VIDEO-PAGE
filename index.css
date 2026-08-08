@@ -202,6 +202,7 @@ header h2 img {
 
 .carte:first-child .titre {
     color: #ffffff;
+    text-transform: uppercase;
 }
 
 .carte i {
