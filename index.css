@@ -1,25 +1,26 @@
+/* ==========================================
+   1. RESET & BASE STYLES
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body{
+body {
     height: 100vh;
-    background-color: #fff;
+    background-color: #ffffff;
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+    transition: background-color 0.3s ease;
 }
-#modeBouton i{
-    color: #fff;
-    text-align: center;
-}
-.sombre{
-    background-color: rgb(12, 52, 75);
-}
-header{
+
+/* ==========================================
+   2. HEADER & NAVIGATION
+   ========================================== */
+header {
     position: fixed;
     top: 0;
     left: 0;
@@ -28,176 +29,201 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 4px 8px;
-    background-color: rgb(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0);
     backdrop-filter: blur(12px);
     z-index: 999;
-    @media (width > 550px) {
+}
+
+header h2 {
+    text-align: center;
+    font-size: 14px;
+    color: darkblue;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    gap: 16px;
+    user-select: none;
+}
+
+header h2 img {
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    cursor: none;
+    user-select: none;
+}
+
+@media (min-width: 551px) {
+    header {
         padding: 8px 12px;
     }
-    h2{
-        text-align: center;
-        font-size: 14px;
-        color: darkblue;
-        text-transform: uppercase;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px;
-        gap: 16px;
-        user-select: none;
-        @media (width > 550px) {
-            padding: 4px;
-            font-size: 18px;
-            gap: 10px;
-        }
-        img{
-            width: 40px;
-            height: 40px;
-            pointer-events: none;
-            cursor: none;
-            user-select: none;
-            @media (width > 550px) {
-                width: 40px;
-                height: 40px;
-            } 
-        }
+    header h2 {
+        padding: 4px;
+        font-size: 18px;
+        gap: 10px;
     }
 }
-.sombre header{
-    h2{
-        color: #fff;
-    }
-}
-.menu{
+
+.menu {
     position: relative;
     list-style: none;
     padding: 10px;
-    background-color: rgb(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     display: flex;
+    gap: 5px;
     justify-content: center;
     align-items: center;
-    @media (width > 550px) {
+}
+
+@media (min-width: 551px) {
+    .menu {
         padding: 14px;
     }
-    i{
-        color: #3b82f6;
-        font-size: 1.2rem;
-        vertical-align: middle;
-    }
 }
-.sous_menu{
+
+/* ==========================================
+   3. SOUS-MENU & BOUTON LUNE (FIXÉ)
+   ========================================== */
+.sous_menu {
     display: none;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    top: 35px;
-    left: -100px;
-    height: auto;
-    border-radius: 10px;
-    padding: 4px 10px;
-    width: calc(120px);
-    background-color: rgb(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 100px);
+    height: 100vh;
     z-index: 1000;
-    /*animation partie*/
-    
-    p{
-        text-transform: capitalize;
-        user-select: none;
-        cursor: none;
-        pointer-events: none;
-    }
-    li{
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 8px 4px;
-        text-align: center;
-        width: calc(auto);
-        border-radius: 99px;
-        color: white;
-        user-select: none;
-    }
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
-.sous_menu.active{
+
+.sous_menu.active {
     display: flex;
     animation: app 0.3s ease-in-out;
 }
-@keyframes app {
-    0%{
-        opacity: 0;
-        transform: scale(0);
-    }
-    100%{
-        opacity: 1;
-        transform: scale(1);
-    }
+
+.sous_menu h2 {
+    margin: 0 0 15px 0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    background: #333333;
+    color: #ffffff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 
-.PHASE_A_PAGE{
+.MIUI {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    list-style: none;
+}
+
+.MIUI li {
+    padding: 10px 5px;
+    border-bottom: 1px solid #0366d6;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+/* Style de base du bouton lune (Mode Clair) */
+.MIUI li i.fa-moon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #1a1a1a;
+    border-radius: 50%;
+    color: #1a1a1a;
+    background-color: transparent !important; /* Force le fond transparent */
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.MIUI li i.fa-moon:hover {
+    background-color: #1a1a1a !important;
+    color: #ffffff;
+    transform: scale(1.05) rotate(-15deg);
+}
+
+/* ==========================================
+   4. LAYOUT MAIN & CARTE COMPONENTS
+   ========================================== */
+.PHASE_A_PAGE {
     margin: 80px 0 15px;
-    padding: 4px;
+    padding: 8px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
-    box-shadow: 0 2px 4px rgb(0, 0, 0, 0.05);
-    p{
-        font-weight: 300;
-        text-align: justify;
-        user-select: none;
-    }
-    span{
-        color: red;
-        font-weight: 500;
-    }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-.sombre .PHASE_A_PAGE{
-    background-color: transparent;
-    p{
-        color: #eee;
-    }
-    span{
-        color: yellow;
-    }
-}
-.carte i{
-    color: #3b82f6;
-    font-size: 1.2rem;
-    margin: 0px 7px 5px;
-    vertical-align: middle;
-}
-.carte iframe{
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    border: none;
-    border-radius: 0;
-    background-color: #000;
-    border-radius: 8px;
+
+.PHASE_A_PAGE p {
+    font-weight: 300;
+    text-align: justify;
     user-select: none;
-    margin: 0px;
-}
-/* Cibler le titre h2 de la toute première carte */
-.carte:first-child{
-    background-color: #FF005D;
-}
-.carte:first-child .titre{
-    color: #ffffff;
 }
 
+.PHASE_A_PAGE span {
+    color: red;
+    font-weight: 500;
+}
 
-.carte{
-    background-color: rgb(255, 255, 255, 1);
+.carte {
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0px auto 15px;
-    box-shadow: 0 20px 40px rgb(0, 0, 0, 0.1);
+    margin: 0 auto 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     position: relative;
     border-radius: 8px;
     width: 100%;
+    overflow: hidden;
 }
-.sombre .carte{
-    background-color: transparent;
+
+.carte:first-child {
+    background-color: #FF005D;
 }
-.point{
+
+.carte:first-child .titre {
+    color: #ffffff;
+}
+
+.carte i {
+    color: #3b82f6;
+    font-size: 1.2rem;
+    margin: 0 7px 5px;
+    vertical-align: middle;
+}
+
+.carte iframe {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border: none;
+    background-color: #000;
+    border-radius: 8px;
+    user-select: none;
+    margin: 0;
+}
+
+.point {
     font-size: 10px;
     position: absolute;
     color: #ffffff;
@@ -205,26 +231,26 @@ header{
     right: 1px;
     height: 15px;
     width: 15px;
-    border-radius: 99px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 900;
     user-select: none;
     pointer-events: none;
-    --col: rgb(0, 255, 255, 0);
-    background-color: var(--col);
+    background-color: rgba(0, 255, 255, 0);
 }
 
-.carte:active .point{
+.carte:active .point {
     font-size: 14px;
     transform: scale(1.4);
     color: cyan;
     background-color: transparent;
     transition: all 0.01s ease;
 }
-@media (width > 600px) {
-    .carte:hover .point{
+
+@media (min-width: 601px) {
+    .carte:hover .point {
         font-size: 14px;
         transform: scale(1.4);
         background-color: transparent;
@@ -232,94 +258,168 @@ header{
     }
 }
 
-.GRID_GEN{
+.GRID_GEN {
     padding: 16px;
-    .titre{
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-bottom: 8px;
-        line-height: 1.4;
-        user-select: none;
-        @media (width > 500px) {
-            font-size: 0.88rem;
-            text-transform: uppercase;
-        }
-    }
-    .date{
-        font-size: 0.85rem;
-        color: #6a737d;
-        margin-bottom: 6px;
-        user-select: none;
-        pointer-events: none;
-    }
-    .auteur{
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: #24292e;
-        margin-bottom: 8px;
+}
+
+.GRID_GEN .titre {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    user-select: none;
+}
+
+.GRID_GEN .date {
+    font-size: 0.85rem;
+    color: #6a737d;
+    margin-bottom: 6px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.GRID_GEN .auteur {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #24292e;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    user-select: none;
+}
+
+.GRID_GEN a {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: #0366d6;
+    text-decoration: none;
+    word-break: break-all;
+    user-select: none;
+    border: 1px solid #0366d6;
+    padding: 3px 8px;
+    border-radius: 99px;
+}
+
+@media (min-width: 501px) {
+    .GRID_GEN .titre {
+        font-size: 0.88rem;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        user-select: none;
-    }
-    a{
-        display: inline-block;
-        font-size: 0.875rem;
-        color: #0366d6;
-        text-decoration: none;
-        word-break: break-all;
-        user-select: none;
-        border: 1px solid;
-        padding: 3px;
-        border-radius: 99px;
     }
 }
-.sombre .GRID_GEN{
-    .titre{
-        color: #eee;
-    }
-    
-}
-#zoneMesses{
+
+/* ==========================================
+   5. GRID MESSES
+   ========================================== */
+#zoneMesses {
     margin: 12px 5px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 5px;
     animation: page 1s ease;
 }
-@keyframes page {
-    0%{
-        opacity: 0.1;
-        transform: scale(0);
-    }
-    100%{
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-@media (width > 560px) {
-    #zoneMesses{
+
+@media (min-width: 561px) {
+    #zoneMesses {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 }
-@media (width > 760px){
-    #zoneMesses{
+
+@media (min-width: 761px) {
+    #zoneMesses {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-@media (width > 960px){
-    #zoneMesses{
+
+@media (min-width: 961px) {
+    #zoneMesses {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
-.sign{
+/* ==========================================
+   6. MODE SOMBRE (DARK MODE FIXÉ)
+   ========================================== */
+body.sombre {
+    background-color: rgb(12, 52, 75);
+}
+
+body.sombre header h2 {
+    color: #ffffff;
+}
+
+body.sombre .sous_menu {
+    background-color: #121212;
+}
+
+body.sombre .MIUI li {
+    color: #ffffff;
+}
+
+/* Icône de lune en Mode Sombre */
+body.sombre .MIUI li i.fa-moon {
+    border-color: #ffffff;
+    color: #ffffff;
+    background-color: transparent !important;
+}
+
+body.sombre .MIUI li i.fa-moon:hover {
+    background-color: #ffffff !important;
+    color: #121212;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+body.sombre .PHASE_A_PAGE {
+    background-color: transparent;
+}
+
+body.sombre .PHASE_A_PAGE p {
+    color: #eeeeee;
+}
+
+body.sombre .PHASE_A_PAGE span {
+    color: yellow;
+}
+
+body.sombre .carte {
+    background-color: transparent;
+}
+
+body.sombre .GRID_GEN .titre {
+    color: #eeeeee;
+}
+
+/* ==========================================
+   7. FOOTER & KEYFRAMES
+   ========================================== */
+.sign {
     color: darkblue;
     font-size: 10px;
     text-align: center;
     padding-bottom: 10px;
 }
-.sign span{
+
+.sign span {
     color: #0366d6;
+}
+
+@keyframes app {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes page {
+    0% {
+        opacity: 0.1;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
