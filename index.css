@@ -152,7 +152,6 @@ header h2 img {
     background-color: transparent !important; /* Force le fond transparent */
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    cursor: pointer;
     flex-shrink: 0;
 }
 
