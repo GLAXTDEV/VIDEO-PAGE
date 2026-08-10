@@ -161,7 +161,7 @@ body.sombre .sous_menu {
     padding: 5px 10px;
     border-radius: 4px;
     text-transform: uppercase;
-    background: rgba(207, 207, 207, 1);
+    background: rgba(207, 207, 207, 0.4);
     color: #ffffff;
     height: 40px;
     display: flex;
@@ -169,6 +169,7 @@ body.sombre .sous_menu {
     align-items: center;
     user-select: none;
     gap: 5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .material-symbols-outlined {
@@ -194,6 +195,7 @@ body.sombre .sous_menu {
     left: 0;
     width: 100%;
     list-style: none;
+    user-select: none;
 }
 
 .MIUI li {
