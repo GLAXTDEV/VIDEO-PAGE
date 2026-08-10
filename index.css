@@ -175,6 +175,8 @@ body.sombre .sous_menu {
     font-size: 24px;
     color: rgba(0, 0, 0, 1);
     animation: iconRotation 12s linear infinite;
+    user-select: none;
+    pointer-events: none;
 }
 
 @keyframes iconRotation {
