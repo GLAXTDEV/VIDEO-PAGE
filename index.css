@@ -468,7 +468,7 @@ body.sombre .GRID_GEN .titre {
    5. GRID MESSES
    ========================================== */
 #zoneMesses {
-    margin: 12px 5px;
+    margin: 12px 8px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 5px;
