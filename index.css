@@ -153,15 +153,15 @@ header h2 img:hover {
 }
 
 body.sombre .sous_menu {
-    background-color: #121212;
+    background-color: rgb(12, 52, 75);
 }
 
 .sous_menu h2 {
-    margin: 0 0 15px 0;
-    padding: 5px 10px;
+    margin: 0px 0px 15px 0px;
+    padding: 10px 10px;
     border-radius: 4px;
     text-transform: uppercase;
-    background: rgba(207, 207, 207, 0.4);
+    background: rgba(207, 207, 207, 0.0);
     color: #ffffff;
     height: 40px;
     display: flex;
@@ -198,7 +198,18 @@ body.sombre .sous_menu {
     user-select: none;
 }
 
-.MIUI li {
+.MIUI li:first-child {
+    padding: 10px 15px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 88px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #1a1a1a;
+    font-weight: 500;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.MIUI li{
     padding: 10px 5px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -211,21 +222,21 @@ body.sombre .sous_menu {
 }
 
 .MIUI li:hover {
-    transform: translateX(5px);
     background-color: rgba(0, 0, 0, 0.03);
 }
 
 body.sombre .MIUI li {
     color: #ffffff;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .MIUI li i.fa-moon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 2px solid #1a1a1a;
+    width: 32px;
+    height: 32px;
+    border: 5px solid #1a1a1a;
     border-radius: 50%;
     color: #1a1a1a;
     background-color: transparent !important;
@@ -233,23 +244,15 @@ body.sombre .MIUI li {
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
-
-.MIUI li i.fa-moon:hover {
-    background-color: #1a1a1a !important;
-    color: #ffffff;
-    transform: scale(1.1) rotate(-20deg);
+.MIUI li p{
+    text-transform: uppercase;
+    font-weight: 900;
 }
 
 body.sombre .MIUI li i.fa-moon {
     border-color: #ffffff;
     color: #ffffff;
     background-color: transparent !important;
-}
-
-body.sombre .MIUI li i.fa-moon:hover {
-    background-color: #ffffff !important;
-    color: #121212;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
 /* ==========================================
@@ -528,3 +531,149 @@ body.sombre .GRID_GEN .titre {
 .sign span {
     color: #0366d6;
 }
+
+
+.science-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 100px;
+            box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Noyau Atomique Energetique --- */
+        .atomic-nucleus {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.8) 0%, rgba(129, 140, 248, 0.3) 60%, transparent 80%);
+            filter: blur(12px);
+            z-index: 1;
+            animation: quantumPulse 2.5s ease-in-out infinite alternate;
+        }
+
+        /* --- Symbole Quantique GX --- */
+        .brand-text {
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #ffffff;
+            z-index: 4;
+            text-shadow: 
+                0 0 10px #38bdf8,
+                0 0 20px #818cf8;
+            animation: textResonance 2.5s ease-in-out infinite;
+            user-select: none;
+        }
+
+        /* --- Orbites Électroniques SVG --- */
+        .orbit-svg {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            z-index: auto;
+        }
+
+        .orbit-path {
+            fill: none;
+            stroke: rgba(56, 189, 248, 0.25);
+            stroke-width: 1.5;
+            stroke-dasharray: 4 4; /* Ligne pointillée style diagramme scientifique */
+        }
+
+        /* --- Électrons en Mouvement 3D --- */
+        .electron-layer {
+            position: absolute;
+            width: 240px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid rgba(129, 140, 248, 0.4);
+            z-index: auto;
+        }
+
+        /* Électron 1 (Axe Alpha : 0°) */
+        .electron-1 {
+            transform: rotate(0deg) rotateX(70deg);
+            animation: spinOrbit1 3s linear infinite;
+        }
+
+        /* Électron 2 (Axe Beta : 60°) */
+        .electron-2 {
+            transform: rotate(60deg) rotateX(70deg);
+            animation: spinOrbit2 4s linear infinite reverse;
+        }
+
+        /* Électron 3 (Axe Gamma : 120°) */
+        .electron-3 {
+            transform: rotate(120deg) rotateX(70deg);
+            animation: spinOrbit3 3.5s linear infinite;
+        }
+
+        /* La particule subatomique (Le point sur l'orbite) */
+        .electron-layer::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background-color: #38bdf8;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #38bdf8, 0 0 18px #a5f3fc;
+        }
+
+        /* --- Label de Faculté des Sciences --- */
+        .faculty-tag {
+            position: absolute;
+            bottom: -40px;
+            color: #94a3b8;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            animation: fadeTag 2.5s ease-in-out infinite;
+        }
+
+        /* =========================================
+           Keyframes & Équations de Mouvement
+           ========================================= */
+
+        @keyframes textResonance {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(0.97);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.03);
+            }
+        }
+
+        @keyframes quantumPulse {
+            0% { transform: scale(0.85); opacity: 0.3; }
+            100% { transform: scale(1.3); opacity: 0.85; }
+        }
+
+        @keyframes spinOrbit1 {
+            0% { transform: rotate(0deg) rotateX(70deg) rotateZ(0deg); }
+            100% { transform: rotate(0deg) rotateX(70deg) rotateZ(360deg); }
+        }
+
+        @keyframes spinOrbit2 {
+            0% { transform: rotate(60deg) rotateX(70deg) rotateZ(0deg); }
+            100% { transform: rotate(60deg) rotateX(70deg) rotateZ(360deg); }
+        }
+
+        @keyframes spinOrbit3 {
+            0% { transform: rotate(120deg) rotateX(70deg) rotateZ(0deg); }
+            100% { transform: rotate(120deg) rotateX(70deg) rotateZ(360deg); }
+        }
+
+        @keyframes fadeTag {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
