@@ -33,7 +33,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 4px 8px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.0);
     backdrop-filter: blur(12px);
     z-index: 999;
     animation: headerSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -66,6 +66,7 @@ header h2 {
     gap: 16px;
     user-select: none;
     transition: color 0.3s ease;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 body.sombre header h2 {
@@ -87,6 +88,8 @@ header h2 img {
     cursor: none;
     user-select: none;
     transition: transform 0.4s ease;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
 }
 
 header h2 img:hover {
@@ -97,14 +100,16 @@ header h2 img:hover {
     position: relative;
     list-style: none;
     padding: 10px;
+    width: 45px; height: 40px;
     background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+    border-radius: 8px;
     display: flex;
     gap: 5px;
     justify-content: center;
     align-items: center;
     user-select: none;
-    font-weight: 500;
+    font-weight: 700;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
     color: #fff;
     transition: transform 0.2s ease, background-color 0.3s ease;
 }
@@ -172,7 +177,7 @@ body.sombre .sous_menu {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.material-symbols-outlined {
+#seting {
     font-size: 24px;
     color: rgba(0, 0, 0, 1);
     animation: iconRotation 12s linear infinite;
@@ -236,7 +241,7 @@ body.sombre .MIUI li {
     justify-content: center;
     width: 32px;
     height: 32px;
-    border: 5px solid #1a1a1a;
+    border: 3px solid #1a1a1a;
     border-radius: 50%;
     color: #1a1a1a;
     background-color: transparent !important;
@@ -309,10 +314,11 @@ body.sombre .PHASE_A_PAGE span {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     position: relative;
     border-radius: 8px;
-    border: 1px double #eee;
+    border: 1px double rgba(255, 255, 255, 0.1);
     width: 100%;
     overflow: hidden;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
     animation: carteFadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -366,13 +372,13 @@ body.sombre .carte {
 .carte iframe {
     width: 100%;
     height: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 16 / 13;
     border: none;
     background-color: #000;
     border-radius: 8px;
     user-select: none;
     margin: 0;
-    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .point {
@@ -456,8 +462,9 @@ body.sombre .GRID_GEN .titre {
     user-select: none;
     border: 1px solid #0366d6;
     padding: 3px 8px;
-    border-radius: 99px;
+    border-radius: 8px;
     transition: all 0.2s ease;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .GRID_GEN a:hover {
