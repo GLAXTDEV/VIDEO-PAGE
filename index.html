@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#2563eb">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <title>VIDEOS DOCS 2025</title>
+  <title>VIDEOS DOCS 2025 - MINI OS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   
@@ -14,29 +14,95 @@
   <link rel="shortcut icon" href="icon.svg" type="image/x-icon">
 </head>
 <body>
-  <header>
-    <h2><img src="icon.svg" alt="logo"><span>DOCS 2025</span></h2>
+  <header id="mainHeader">
+    <h2>
+      <img src="icon.svg" alt="logo">
+      <span id="headerTitle">DOCS 2025</span>
+    </h2>
+    
+    <div class="os-clock" id="osClock">00:00</div>
+
+    <div class="net-monitor-header" id="globalNetMonitor">
+      <div class="net-row down">
+        <i class="fa-solid fa-arrow-down"></i>
+        <div class="net-bar-bg"><div class="net-bar-fill down-bar"></div></div>
+        <span class="net-val down-val">0 o/s</span>
+      </div>
+      <div class="net-row up">
+        <i class="fa-solid fa-arrow-up"></i>
+        <div class="net-bar-bg"><div class="net-bar-fill up-bar"></div></div>
+        <span class="net-val up-val">0 o/s</span>
+      </div>
+    </div>
+
     <ul class="menu">
-      
-      <span class="material-symbols-outlined">Menu</span></ul>
+      <span class="material-symbols-outlined">Menu</span>
     </ul>
   </header>
-  <div class="sous_menu">
-    <h2><i class="fas fa-cog"></i> settings<span class="material-symbols-outlined" id="seting">settings</span></h2>
 
+  <div class="sous_menu">
+    <div class="user-profile-section">
+      <div class="profile-avatar-wrapper" id="profileAvatarBtn" title="Voir la photo de profil">
+        <img id="profileAvatarImg" src="https://ui-avatars.com/api/?name=User&background=2563eb&color=fff" alt="Avatar">
+      </div>
+      <div class="profile-info">
+        <span id="userNameDisplay">Invité</span>
+        <button id="editNameBtn" title="Changer de nom"><i class="fa-solid fa-pen"></i></button>
+      </div>
+    </div>
+
+    <div class="sous_menu_content">
+      <h2><i class="fas fa-cog"></i> Settings<span class="material-symbols-outlined" id="seting">settings</span></h2>
       <ul class="MIUI">
-        <li id="modeBouton"><i class="fa-solid fa-moon"></i> <p>Moon</p></li>
-      <ul/>
+        <li id="modeBouton"><i class="fa-solid fa-moon"></i> <p id="modeText">Moon</p></li>
+        <li id="netMonitorToggle"><i class="fa-solid fa-wifi"></i> <p id="netText">Réseau: OFF</p></li>
+        <li id="favFilterToggle"><i class="fa-solid fa-star"></i> <p id="favText">Voir Favoris</p></li>
+        
+        <li id="bgPickerBtn">
+            <i class="fa-solid fa-image"></i> 
+            <p>Fond d'écran</p>
+            <input type="file" id="bgInput" accept="image/*" style="display: none;">
+        </li>
+        <li id="bgResetBtn" style="display: none; color: #ef4444;">
+            <i class="fa-solid fa-trash" style="border-color: #ef4444 !important; color: #ef4444 !important;"></i> 
+            <p>Retirer Wallpaper</p>
+        </li>
+      </ul>
+      
+      <div class="data-usage-box">
+        <p><i class="fa-solid fa-chart-pie"></i> Data du jour :</p>
+        <span id="totalDataUsage">0 Mo</span>
+      </div>
+    </div>
   </div> 
+
+  <div id="avatarModal" class="avatar-modal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <span id="modalUserName">Profil</span>
+        <button id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalAvatarImg" src="" alt="Photo de profil grand format">
+      </div>
+      <div class="modal-footer">
+        <button id="changeAvatarFromModalBtn"><i class="fa-solid fa-camera"></i> Changer la photo</button>
+        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+      </div>
+    </div>
+  </div>
       
   <div class="PHASE_A_PAGE">
-    <p>Si vous vouler télécharger des vidéos , rendez-vous sur <span style="color: blue;">youtube</span>, vous pourrez les supprimer après visionnage car elles restent <span>toujours disponibles</span> ici
-    </p>
+    <div class="os-search-bar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="Rechercher une vidéo, un auteur...">
+    </div>
+    <p>Si vous voulez télécharger des vidéos, rendez-vous sur <span style="color: blue;">YouTube</span>, vous pourrez les supprimer après visionnage car elles restent <span>toujours disponibles</span> ici.</p>
   </div>
   
   <div id="zoneMesses"></div>
-  <p class="sign">Page video DOCS 2025 <span>&copy 2026 tout droit reserver</span>
-  </p>
+  <p class="sign">Page video DOCS 2025 <span>&copy; 2026 tout droit réservé</span></p>
     
   <script src="index.js"></script>
 </body>
