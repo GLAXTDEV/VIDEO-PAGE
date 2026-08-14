@@ -15,6 +15,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     transition: background-color 0.4s ease, color 0.4s ease;
+    transition: 2s;
 }
 
 body.sombre {
@@ -34,10 +35,13 @@ header {
     align-items: center;
     padding: 4px 8px;
     background: rgba(255, 255, 255, 0.0);
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(1000px);
     z-index: 999;
     animation: headerSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.2),
+    1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
+
 
 @keyframes headerSlideDown {
     from {
@@ -114,7 +118,7 @@ header h2 img:hover {
     transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.menu:hover {
+.menu:active {
     transform: scale(1.03);
     background-color: rgba(0, 0, 0, 0.18);
 }
@@ -130,7 +134,6 @@ header h2 img:hover {
    ========================================== */
 .sous_menu {
     display: none;
-    background: #ffffff;
     position: fixed;
     top: 0;
     left: 0;
@@ -140,6 +143,7 @@ header h2 img:hover {
     flex-direction: column;
     padding: 10px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 1);
     transition: background-color 0.3s ease;
 }
 
@@ -346,6 +350,9 @@ body.sombre .PHASE_A_PAGE span {
 .carte:first-child {
     background-color: rgba(236, 152, 8, 1);
 }
+body.sombre .carte:first-child{
+    background-color: rgba(236, 152, 8, 1);
+}
 
 .carte:first-child .titre {
     color: #ffffff;
@@ -446,7 +453,7 @@ body.sombre .GRID_GEN .titre {
 .GRID_GEN .auteur {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #24292e;
+    color: #6a737d;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
