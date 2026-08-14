@@ -208,6 +208,12 @@ body.sombre .sous_menu { background-color: rgba(12, 52, 75, 0.95); }
 body.sombre .sous_menu_content::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
 }
+.betaTest{
+    color: red;
+    font-weight: 100;
+    margin: 5px 6px;
+    text-transform: uppercase;
+}
 
 .sous_menu h2 {
     margin: 0px 0px 5px 0px;
