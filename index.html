@@ -14,6 +14,8 @@
   <link rel="shortcut icon" href="icon.svg" type="image/x-icon">
 </head>
 <body>
+
+  <!-- HEADER NAVIGATION -->
   <header id="mainHeader">
     <h2>
       <img src="icon.svg" alt="logo">
@@ -40,6 +42,7 @@
     </ul>
   </header>
 
+  <!-- SOUS-MENU LATÉRAL -->
   <div class="sous_menu">
     <div class="user-profile-section">
       <div class="profile-avatar-wrapper" id="profileAvatarBtn" title="Voir la photo de profil">
@@ -58,6 +61,17 @@
         <li id="netMonitorToggle"><i class="fa-solid fa-wifi"></i> <p id="netText">Réseau: OFF</p></li>
         <li id="favFilterToggle"><i class="fa-solid fa-star"></i> <p id="favText">Voir Favoris</p></li>
         
+        <!-- OPTION MUSIQUE D'ÉTUDE -->
+        <li id="musicStudyBtn">
+            <i class="fa-solid fa-headphones"></i> 
+            <p>Musique d'étude</p>
+        </li>
+        <li id="notifToggleBtn">
+    <i class="fa-solid fa-bell"></i> 
+    <p id="notifText">Notifications: OFF</p>
+</li>
+
+
         <li id="bgPickerBtn">
             <i class="fa-solid fa-image"></i> 
             <p>Fond d'écran</p>
@@ -79,6 +93,7 @@
     </div>
   </div> 
 
+  <!-- MODAL PROFIL AVATAR -->
   <div id="avatarModal" class="avatar-modal">
     <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-card">
@@ -95,20 +110,65 @@
       </div>
     </div>
   </div>
-  <div class="os-search-bar">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="searchInput" placeholder="Rechercher une vidéo, un auteur...">
-    </div>
+
+  <!-- MODAL LECTEUR MUSIQUE D'ÉTUDE -->
+  <div id="musicModal" class="avatar-modal">
+    <div class="modal-backdrop" id="musicModalBackdrop"></div>
+    <div class="modal-card music-card">
+      <div class="modal-header">
+        <span><i class="fa-solid fa-compact-disc"></i> Musique d'Étude</span>
+        <button id="closeMusicModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
       
+      <div class="music-body">
+        <div class="track-display">
+          <i class="fa-solid fa-music cd-icon" id="cdIcon"></i>
+          <p id="currentTrackTitle">Aucune musique chargée</p>
+        </div>
+
+        <audio id="audioPlayer"></audio>
+
+        <div class="player-controls">
+          <button id="prevTrackBtn"><i class="fa-solid fa-backward-step"></i></button>
+          <button id="playPauseBtn" class="play-main"><i class="fa-solid fa-play"></i></button>
+          <button id="nextTrackBtn"><i class="fa-solid fa-forward-step"></i></button>
+        </div>
+
+        <div class="playlist-container">
+          <p class="playlist-title">Ma Liste</p>
+          <ul id="playlistView"></ul>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <label for="musicInput" class="add-music-btn">
+          <i class="fa-solid fa-plus"></i> Ajouter des fichiers
+        </label>
+        <input type="file" id="musicInput" accept="audio/*" multiple style="display: none;">
+      </div>
+    </div>
+  </div>
+
+  <!-- BARRE DE RECHERCHE -->
+  <div class="os-search-bar">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="searchInput" placeholder="Rechercher une vidéo, un auteur...">
+  </div>
+      
+  <!-- SECTION INFORMATION -->
   <div class="PHASE_A_PAGE">
-    
     <p>Si vous voulez télécharger des vidéos, rendez-vous sur <span style="color: blue;">YouTube</span>, vous pourrez les supprimer après visionnage car elles restent <span>toujours disponibles</span> ici.</p>
   </div>
   
+  <!-- CONTENEUR DES CARTES VIDÉOS -->
   <div id="zoneMesses"></div>
+
+  <!-- FOOTER -->
   <p class="sign">Page video DOCS 2025 <span>&copy; 2026 tout droit réservé</span></p>
     
   <script src="index.js"></script>
   <script src="bar.js"></script>
+  <script src="music.js"></script>
+  <script src="notif.js"></script>
 </body>
 </html>
