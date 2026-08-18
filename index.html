@@ -61,16 +61,32 @@
         <li id="netMonitorToggle"><i class="fa-solid fa-wifi"></i> <p id="netText">Réseau: OFF</p></li>
         <li id="favFilterToggle"><i class="fa-solid fa-star"></i> <p id="favText">Voir Favoris</p></li>
         
+        <!-- MODE ZEN / FULL FOCUS -->
+        <li id="zenModeToggle">
+            <i class="fa-solid fa-expand"></i> 
+            <p id="zenText">Mode Zen: OFF</p>
+        </li>
+
+        <!-- BLOC-NOTES ET FLASHCARDS -->
+        <li id="notesBtn">
+            <i class="fa-solid fa-note-sticky"></i> 
+            <p>Bloc-Notes</p>
+        </li>
+        <li id="flashcardsBtn">
+            <i class="fa-solid fa-layer-group"></i> 
+            <p>Flashcards</p>
+        </li>
+
         <!-- OPTION MUSIQUE D'ÉTUDE -->
         <li id="musicStudyBtn">
             <i class="fa-solid fa-headphones"></i> 
             <p>Musique d'étude</p>
         </li>
+        
         <li id="notifToggleBtn">
-    <i class="fa-solid fa-bell"></i> 
-    <p id="notifText">Notifications: OFF</p>
-</li>
-
+          <i class="fa-solid fa-bell"></i> 
+          <p id="notifText">Notifications: OFF</p>
+        </li>
 
         <li id="bgPickerBtn">
             <i class="fa-solid fa-image"></i> 
@@ -83,15 +99,28 @@
         </li>
       </ul>
       
+      <!-- STATISTIQUES DATA, TEMPS D'ÉTUDE ET ÉTOILES -->
       <div class="data-usage-box">
         <p><i class="fa-solid fa-chart-pie"></i> Data du jour :</p>
         <span id="totalDataUsage">0 Mo</span>
       </div>
+      <div class="data-usage-box study-box">
+        <p><i class="fa-solid fa-stopwatch"></i> Temps d'étude du jour :</p>
+        <span id="studyTimeDisplay">00h 00m</span>
+      </div>
+      <div class="data-usage-box star-box">
+        <p><i class="fa-solid fa-star" style="color: #f59e0b;"></i> Étoiles gagnées :</p>
+        <span id="starsDisplay">0 ⭐</span>
+      </div>
+
       <div class="betaTest">
         <p>fonctionnalités en phase bêta</p>
       </div>
     </div>
   </div> 
+
+  <!-- BOUTON QUITTER MODE ZEN -->
+  <button id="exitZenBtn" class="exit-zen-btn"><i class="fa-solid fa-compress"></i> Quitter Mode Zen</button>
 
   <!-- MODAL PROFIL AVATAR -->
   <div id="avatarModal" class="avatar-modal">
@@ -134,8 +163,27 @@
           <button id="nextTrackBtn"><i class="fa-solid fa-forward-step"></i></button>
         </div>
 
+        <!-- MIXEUR AUDIO DOUBLE VOLUME -->
+        <div class="audio-mixer">
+          <div class="volume-control-group">
+            <div class="volume-label">
+              <span><i class="fa-solid fa-tv"></i> Vidéo</span>
+              <span id="videoVolPercent" class="vol-val">100%</span>
+            </div>
+            <input type="range" id="videoVolumeSlider" min="0" max="100" value="100" class="harmony-slider">
+          </div>
+
+          <div class="volume-control-group">
+            <div class="volume-label">
+              <span><i class="fa-solid fa-headphones"></i> Musique</span>
+              <span id="musicVolPercent" class="vol-val">50%</span>
+            </div>
+            <input type="range" id="musicVolumeSlider" min="0" max="100" value="50" class="harmony-slider">
+          </div>
+        </div>
+
         <div class="playlist-container">
-          <p class="playlist-title">Ma Liste</p>
+          <p class="playlist-title">Ma Liste (ajoute tes musiques)</p>
           <ul id="playlistView"></ul>
         </div>
       </div>
@@ -145,6 +193,49 @@
           <i class="fa-solid fa-plus"></i> Ajouter des fichiers
         </label>
         <input type="file" id="musicInput" accept="audio/*" multiple style="display: none;">
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL BLOC-NOTES INTELLIGENT -->
+  <div id="notesModal" class="avatar-modal">
+    <div class="modal-backdrop" id="notesModalBackdrop"></div>
+    <div class="modal-card study-card">
+      <div class="modal-header">
+        <span><i class="fa-solid fa-note-sticky"></i> Mes Notes d'Étude</span>
+        <button id="closeNotesModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="study-body">
+        <textarea id="studyNotesArea" placeholder="Prenez vos notes de cours ici... Elles sont sauvegardées automatiquement."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CARTE DE RÉVISION (FLASHCARDS) -->
+  <div id="flashcardsModal" class="avatar-modal">
+    <div class="modal-backdrop" id="flashcardsModalBackdrop"></div>
+    <div class="modal-card study-card">
+      <div class="modal-header">
+        <span><i class="fa-solid fa-layer-group"></i> Cartes de Révision</span>
+        <button id="closeFlashcardsModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="study-body">
+        <div class="flashcard-box" id="flashcardBox">
+          <div class="card-inner" id="cardInner">
+            <div class="card-front" id="cardFront">Ajoutez une carte pour commencer !</div>
+            <div class="card-back" id="cardBack">La réponse s'affichera ici.</div>
+          </div>
+        </div>
+        <div class="card-nav">
+          <button id="prevCardBtn"><i class="fa-solid fa-chevron-left"></i></button>
+          <span id="cardCounter">0 / 0</span>
+          <button id="nextCardBtn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="card-form">
+          <input type="text" id="cardQuestionInput" placeholder="Question / Concept">
+          <input type="text" id="cardAnswerInput" placeholder="Réponse / Définition">
+          <button id="addCardBtn"><i class="fa-solid fa-plus"></i> Ajouter Carte</button>
+        </div>
       </div>
     </div>
   </div>
@@ -170,5 +261,8 @@
   <script src="bar.js"></script>
   <script src="music.js"></script>
   <script src="notif.js"></script>
+  <script src="controlVol.js"></script>
+  <script src="other.js"></script>
+  <script src="study.js"></script>
 </body>
 </html>

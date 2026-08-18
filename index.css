@@ -103,7 +103,7 @@ header h2 img {
     cursor: none;
     user-select: none;
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
 
@@ -147,7 +147,7 @@ body.sombre .os-clock {
     align-items: center;
     user-select: none;
     font-weight: 700;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
     color: #fff;
     transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
     flex-shrink: 0;
@@ -1178,4 +1178,277 @@ body.sombre .notif-desc {
     font-size: 1rem;
     padding: 4px;
     cursor: pointer;
+}
+
+
+/* ==========================================
+   MIXEUR AUDIO (STYLE HARMONYOS)
+   ========================================== */
+.audio-mixer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.volume-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.volume-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.vol-val {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+/* Customisation du curseur de volume */
+.harmony-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    outline: none;
+}
+
+.harmony-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #2563eb;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.harmony-slider::-webkit-slider-thumb:active {
+    transform: scale(1.25);
+}
+
+/* ==========================================
+   MODULES D'ÉTUDE ET MODE ZEN
+   ========================================== */
+
+/* BOÎTE DU TEMPS D'ÉTUDE DU JOUR */
+.data-usage-box.study-box {
+    margin-top: 8px;
+    border-left: 3px solid #2563eb;
+}
+
+.data-usage-box.study-box span {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+/* BOUTON QUITTER MODE ZEN */
+.exit-zen-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ef4444;
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+    z-index: 4000;
+    display: none;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.exit-zen-btn:active {
+    transform: scale(0.92);
+}
+
+/* COMPORTEMENT DU MODE ZEN */
+body.zen-mode #mainHeader,
+body.zen-mode .os-search-bar,
+body.zen-mode .PHASE_A_PAGE,
+body.zen-mode .sign,
+body.zen-mode .sous_menu {
+    display: none !important;
+}
+
+body.zen-mode .exit-zen-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.zen-mode #zoneMesses {
+    padding-top: 20px;
+}
+
+/* CARTES ET BLOC-NOTES */
+.study-card {
+    max-width: 400px;
+    width: 90%;
+}
+
+.study-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#studyNotesArea {
+    width: 100%;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.85rem;
+    resize: none;
+    outline: none;
+}
+
+/* FLASHCARDS ANIMATION */
+.flashcard-box {
+    width: 100%;
+    height: 160px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-front {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.card-back {
+    background: #1e293b;
+    color: #38bdf8;
+    transform: rotateY(180deg);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.card-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.card-nav button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: inherit;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-form input {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: inherit;
+    font-size: 0.8rem;
+    outline: none;
+}
+
+.card-form button {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+/* BOÎTE DES ÉTOILES DE RÉCOMPENSE */
+.data-usage-box.star-box {
+    margin-top: 8px;
+    border-left: 3px solid #f59e0b;
+}
+
+.data-usage-box.star-box span {
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+/* DESIGN DU SYSTÈME DE NIVEAU */
+.data-usage-box.level-box {
+    margin-top: 8px;
+    border-left: 3px solid #8b5cf6;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: #8b5cf6;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+#levelStatus {
+    font-size: 0.7rem;
+    color: #9ca3af;
+    display: block;
+    margin-top: 4px;
 }
