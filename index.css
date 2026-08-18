@@ -684,12 +684,11 @@ body.sombre .os-search-bar {
 
 /* Effet de pression tactile sur les cartes */
 .carte:active {
-    transform: scale(0.97);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.carte:first-child {
-    background: rgba(255, 157, 0, 0.95);
+.carte:first-child .titre{
+    color: rgba(255, 0, 0, 0.95);
 }
 
 body.sombre .carte {
@@ -697,8 +696,8 @@ body.sombre .carte {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-body.sombre .carte:first-child {
-    background: rgba(255, 157, 0, 0.95);
+body.sombre .carte:first-child .titre{
+    color: rgba(255, 0, 0, 0.95);
 }
 
 .carte iframe {
