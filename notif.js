@@ -1,32 +1,90 @@
 /* ==========================================
    SYSTÈME DE NOTIFICATION NOUVELLE VIDÉO
    ========================================== */
-const notifToggleBtn = document.getElementById('notifToggleBtn');
-const notifText = document.getElementById('notifText');
 
-// 1. Demande de permission pour les notifications navigateur
-if (notifToggleBtn) {
-    notifToggleBtn.addEventListener('click', async () => {
-        if ('Notification' in window) {
-            const permission = await Notification.requestPermission();
-            if (permission === 'granted') {
-                localStorage.setItem('notifsEnabled', 'true');
-                if (notifText) notifText.textContent = 'Notifications: ON';
-                showHarmonyNotification({
-                    id: 'test',
-                    title: 'Notifications activées !',
-                    auteur: 'Système',
-                    date: 'Aujourd\'hui'
-                });
+document.addEventListener('DOMContentLoaded', () => {
+    const notifToggleBtn = document.getElementById('notifToggleBtn');
+    const notifText = document.getElementById('notifText');
+
+    // 1. Fonction pour mettre à jour le texte et l'état visuel du bouton
+    function updateNotifUI(isEnabled) {
+        if (notifText) {
+            notifText.textContent = isEnabled ? 'Notifications: ON' : 'Notifications: OFF';
+        }
+        if (notifToggleBtn) {
+            if (isEnabled) {
+                notifToggleBtn.classList.add('active');
             } else {
-                localStorage.setItem('notifsEnabled', 'false');
-                if (notifText) notifText.textContent = 'Notifications: OFF';
+                notifToggleBtn.classList.remove('active');
             }
         }
-    });
-}
+    }
 
-// 2. Création dynamique de la bannière Toast dans le DOM
+    // 2. RESTAURATION DE L'ÉTAT AU CHARGEMENT DE LA PAGE (Fix du Refresh)
+    function initNotifState() {
+        const savedState = localStorage.getItem('notifsEnabled');
+        
+        // Si sauvegardé à 'true' ET que la permission du navigateur est toujours accordée
+        if (savedState === 'true' && 'Notification' in window && Notification.permission === 'granted') {
+            updateNotifUI(true);
+        } else {
+            // Sinon par défaut on laisse/met sur OFF
+            localStorage.setItem('notifsEnabled', 'false');
+            updateNotifUI(false);
+        }
+    }
+
+    // On exécute immédiatement au chargement
+    initNotifState();
+
+    // 3. GESTION DU BASCULEMENT ON / OFF (Toggle)
+    if (notifToggleBtn) {
+        notifToggleBtn.addEventListener('click', async () => {
+            if (!('Notification' in window)) {
+                alert("Votre navigateur ne supporte pas les notifications.");
+                return;
+            }
+
+            const isCurrentlyEnabled = localStorage.getItem('notifsEnabled') === 'true';
+
+            // Si déjà activé -> ON LE DÉSACTIVE
+            if (isCurrentlyEnabled) {
+                localStorage.setItem('notifsEnabled', 'false');
+                updateNotifUI(false);
+            } 
+            // Si désactivé -> ON L'ACTIVE
+            else {
+                let permission = Notification.permission;
+
+                if (permission === 'default') {
+                    permission = await Notification.requestPermission();
+                }
+
+                if (permission === 'granted') {
+                    localStorage.setItem('notifsEnabled', 'true');
+                    updateNotifUI(true);
+                    
+                    // Notification de confirmation d'activation
+                    showHarmonyNotification({
+                        id: 'test_welcome',
+                        title: 'Notifications activées !',
+                        auteur: 'Système',
+                        date: 'Aujourd\'hui'
+                    });
+                } else {
+                    // Si refusé ou bloqué par le navigateur
+                    localStorage.setItem('notifsEnabled', 'false');
+                    updateNotifUI(false);
+                    if (permission === 'denied') {
+                        alert("Les notifications sont bloquées dans les paramètres de votre navigateur.");
+                    }
+                }
+            }
+        });
+    }
+});
+
+// 4. Création dynamique de la bannière Toast dans le DOM
 function createNotificationBanner() {
     if (document.getElementById('osNotifToast')) return;
 
@@ -52,7 +110,7 @@ function createNotificationBanner() {
     });
 }
 
-// 3. Fonction pour afficher la notification (Bannière + Navigateur)
+// 5. Fonction pour afficher la notification (Bannière + Navigateur)
 function showHarmonyNotification(videoData) {
     createNotificationBanner();
 
@@ -63,7 +121,7 @@ function showHarmonyNotification(videoData) {
     if (notifTitle) notifTitle.textContent = videoData.title;
     if (notifDesc) notifDesc.textContent = `Par ${videoData.auteur || 'Inconnu'} • ${videoData.date || 'Récemment'}`;
 
-    // Animation d'apparition
+    // Animation d'apparition de la bannière
     toast.classList.add('active');
 
     // Masquage automatique après 6 secondes
@@ -71,8 +129,8 @@ function showHarmonyNotification(videoData) {
         toast.classList.remove('active');
     }, 6000);
 
-    // Notification système native si autorisée
-    if (Notification.permission === 'granted' && localStorage.getItem('notifsEnabled') === 'true') {
+    // Notification système native (seulement si l'utilisateur l'a activée)
+    if ('Notification' in window && Notification.permission === 'granted' && localStorage.getItem('notifsEnabled') === 'true') {
         new Notification(`Nouvelle vidéo : ${videoData.title}`, {
             body: `Ajoutée par ${videoData.auteur || 'Inconnu'}\nDate: ${videoData.date || 'Récemment'}`,
             icon: 'icon.svg'
@@ -80,26 +138,12 @@ function showHarmonyNotification(videoData) {
     }
 }
 
-// 4. Vérification automatique lors du chargement de la page
+// 6. Vérification automatique des nouvelles vidéos
 function checkForNewVideo(latestVideo) {
-    // latestVideo doit contenir : { id, title, auteur, date }
     const lastSeenId = localStorage.getItem('lastSeenVideoId');
 
     if (latestVideo && latestVideo.id !== lastSeenId) {
-        // Nouvelle vidéo détectée !
         showHarmonyNotification(latestVideo);
-        // Mise à jour du dernier identifiant vu
         localStorage.setItem('lastSeenVideoId', latestVideo.id);
     }
 }
-
-// EXEMPLE D'UTILISATION :
-// Appelle cette fonction lorsque tes cartes vidéos sont générées depuis ton script principal (ex: bar.js)
-/*
-checkForNewVideo({
-    id: "vid_2026_01",
-    title: "Documentaire : Les Mystères de l'Océan",
-    auteur: "Jean Dupont",
-    date: "18/08/2026"
-});
-*/
