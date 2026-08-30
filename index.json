@@ -8,59 +8,11 @@
         "number": "#"
     },
     {
-        "titre": "MTH_101: INVERSER UNE MATRICE (CRAMER)",
-        "date": "07/08/2026",
-        "videoID": "Z_z5egqhYYs",
-        "par": "All for math",
+        "titre": "LOOK AT",
+        "date": "30/08/2026",
+        "videoID": "OX7jolfW69Y",
+        "par": "DEV_WEB",
         "son_adresse": "none",
         "number": "1"
-    },
-    {
-        "titre": "UE: TITRE",
-        "date": "13/08/2026",
-        "videoID": "6r4DhklLpQs",
-        "par": "Editor/channel/correcteur",
-        "son_adresse": "exple@exemple.com",
-        "number": "2"
-    },
-    {
-        "titre": "UE: TITRE",
-        "date": "13/08/2026",
-        "videoID": "566QEvq73eA",
-        "par": "Editor/channel/correcteur",
-        "son_adresse": "exple@exemple.com",
-        "number": "3"
-    },
-    {
-        "titre": "UE: TITRE",
-        "date": "13/08/2026",
-        "videoID": "QMv_N312oM0",
-        "par": "Editor/channel/correcteur",
-        "son_adresse": "exple@exemple.com",
-        "number": "4"
-    },
-    {
-        "titre": "UE: TITRE",
-        "date": "13/08/2026",
-        "videoID": "7VegXwjMAyo",
-        "par": "Editor/channel/correcteur",
-        "son_adresse": "exple@exemple.com",
-        "number": "5"
-    },
-    {
-        "titre": "UE: TITRE",
-        "date": "17/08/2026",
-        "videoID": "-85pZ8LvGIQ",
-        "par": "Editor/channel/correcteur",
-        "son_adresse": "exple@exemple.com",
-        "number": "6"
-    },
-    {
-        "titre": "UE: TITRE",
-        "date": "17/08/2026",
-        "videoID": "f0FyT1TQxLE",
-        "par": "Editor/channel/correcteur",
-        "son_adresse": "exple@exemple.com",
-        "number": "7"
     }
 ]
