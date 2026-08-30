@@ -815,10 +815,10 @@ body.sombre .GRID_GEN .auteur { color: #9ca3af; }
    7. GRID MESSES & FOOTER
    ========================================== */
 #zoneMesses {
-    margin: 6px 4px;
+    margin: 6px 10px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 6px 0 0 0;
+    gap: 6px;
 }
 
 @media (min-width: 561px) {
