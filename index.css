@@ -339,8 +339,8 @@ body.sombre .data-usage-box {
     margin-bottom: 12px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 16px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    border: 1px solid #FFFFFF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.00);
     flex-shrink: 0;
     user-select: none;
     transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -362,7 +362,7 @@ body.sombre .user-profile-section {
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.0);
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     user-select: none;
 }
