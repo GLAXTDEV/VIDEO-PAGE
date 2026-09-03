@@ -283,7 +283,7 @@ body.sombre .MIUI li {
     justify-content: center;
     width: 32px;
     height: 32px;
-    border: 2px solid #1a1a1a;
+    border: 2px solid rgba(26, 26, 26, 0.8);
     border-radius: 50%;
     color: #1a1a1a;
     background-color: transparent !important;
@@ -660,15 +660,15 @@ body.sombre .os-search-bar {
 
 .carte {
     padding: 6px;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto 15px;
+    margin: 0 auto 0px;
     position: relative;
-    border-radius: 16px;
+    border-radius: 12px;
     width: 100%;
     overflow: hidden;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -700,7 +700,7 @@ body.sombre .carte:first-child .titre{
     aspect-ratio: 16 / 13;
     border: none;
     background-color: #000;
-    border-radius: 12px;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     user-select: none;
 }
@@ -815,7 +815,7 @@ body.sombre .GRID_GEN .auteur { color: #9ca3af; }
    7. GRID MESSES & FOOTER
    ========================================== */
 #zoneMesses {
-    margin: 6px 10px;
+    margin: 6px 4px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 6px;
