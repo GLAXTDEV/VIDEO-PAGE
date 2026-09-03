@@ -11,24 +11,24 @@
         "titre": "VIDEO TITLE",
         "date": "30/08/2026",
         "videoID": "OX7jolfW69Y",
-        "par": "DEV_WEB",
-        "son_adresse": "none",
+        "par": "EDITOR/CHANNEL",
+        "son_adresse": "GMAIL",
         "number": "1"
     },
     {
         "titre": "VIDEO TITLE",
         "date": "03/09/2026",
         "videoID": "XoBWn2qvIQM",
-        "par": "EDITOR",
-        "son_adresse": "none",
+        "par": "EDITOR/CHANNEL",
+        "son_adresse": "GMAIL",
         "number": "2"
     },
     {
         "titre": "VIDEO TITLE",
         "date": "03/09/2026",
         "videoID": "NlMQ6vrBPbQ",
-        "par": "EDITOR",
-        "son_adresse": "none",
+        "par": "EDITOR/CHANNEL",
+        "son_adresse": "GMAIL",
         "number": "3"
     }
 ]
