@@ -63,7 +63,17 @@ async function template() {
         loadYouTubeScript();
     } catch (err) {
         console.error("Erreur de chargement du fichier JSON:", err);
+    } finally {
+        hidePageLoader();
     }
+}
+
+function hidePageLoader() {
+    const pageLoader = document.getElementById('pageLoader');
+    if (!pageLoader) return;
+
+    pageLoader.classList.add('is-hidden');
+    pageLoader.addEventListener('transitionend', () => pageLoader.remove(), { once: true });
 }
 
 function renderVideos(data) {
