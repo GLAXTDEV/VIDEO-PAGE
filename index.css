@@ -660,7 +660,7 @@ body.sombre .os-search-bar {
 
 .carte {
     padding: 6px;
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     display: flex;
@@ -672,12 +672,11 @@ body.sombre .os-search-bar {
     width: 100%;
     overflow: hidden;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
 
 /* Effet de pression tactile sur les cartes */
-.carte:active {
+.carte:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -701,7 +700,6 @@ body.sombre .carte:first-child .titre{
     border: none;
     background-color: #000;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     user-select: none;
 }
 
