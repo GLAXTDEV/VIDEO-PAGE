@@ -49,6 +49,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 6px 10px;
+    background: #fff;
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 999;
@@ -136,8 +137,8 @@ body.sombre .os-clock {
     padding: 6px 12px;
     min-width: 45px;
     width: auto;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.5);
+    height: 36px;
+    background-color: rgba(0, 0, 0, 0.15);
     border-radius: 6px;
     display: flex;
     gap: 5px;
