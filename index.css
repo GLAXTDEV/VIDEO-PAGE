@@ -813,6 +813,17 @@ body.sombre .GRID_GEN .auteur { color: #9ca3af; }
     background-color: #2563eb;
     color: #ffffff;
 }
+.GRID_GEN a i{
+    animation: haute 2s linear infinite;
+}
+@keyframes haute{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
 
 /* ==========================================
    7. GRID MESSES & FOOTER
