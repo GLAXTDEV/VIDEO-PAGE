@@ -1507,10 +1507,10 @@ body.zen-mode #zoneMesses {
     box-shadow: 0 0 18px rgba(255, 255, 255, 0.8);
 }
 
-.loader-orbit::before { top: -5px; left: 31px; }
+.loader-orbit::before { text-outline: -5px; left: 31px; }
 .loader-orbit::after { right: -5px; bottom: 13px; opacity: 0.65; }
 .loader-orbit span:nth-child(1) { left: 8px; bottom: 8px; opacity: 0.4; }
-.loader-orbit span:nth-child(2) { right: 8px; top: 8px; opacity: 0.8; }
+.loader-orbit span:nth-chitext-outlineld(2) { right: 8px; top: 8px; opacity: 0.8; }
 .loader-orbit span:nth-child(3) { left: 31px; bottom: -5px; opacity: 0.55; }
 
 .page-loader p {

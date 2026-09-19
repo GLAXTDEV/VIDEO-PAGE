@@ -102,7 +102,7 @@ function renderVideos(data) {
                         <button class="btn-fav ${isFav ? 'active' : ''}" onclick="toggleFavorite('${element.videoID}', this)" title="Favori">
                             <i class="fa-solid fa-star"></i>
                         </button>
-                        <a href="mailto:${element.son_adresse}">${element.son_adresse}</a>
+                        <a href="mailto:${element.son_adresse}">  <i class="fa-solid fa-envelope"></i> Mailbox</a>
                     </div>
             </div>
         `;
