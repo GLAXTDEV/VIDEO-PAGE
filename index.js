@@ -1,58 +1,15 @@
 let players = [];
-let globalNetInterval = null;
 let saveTimeInterval = null;
 let allVideosData = [];
 
 // --- ÉTATS LOCALSTORAGE ---
 let isDarkMode = localStorage.getItem('os_darkMode') === 'true';
-let isNetMonitorEnabled = localStorage.getItem('os_netMonitor') === 'true';
 let favoritesList = JSON.parse(localStorage.getItem('os_favorites')) || [];
 let videoPositions = JSON.parse(localStorage.getItem('os_video_positions')) || {};
 let customBgImage = localStorage.getItem('os_wallpaper') || null;
 let userName = localStorage.getItem('os_user_name') || null;
 let userAvatar = localStorage.getItem('os_user_avatar') || null;
 let isFavFilterActive = false;
-
-// --- GESTION DE LA DATA QUOTIDIENNE ---
-function getTodayKey() {
-    const today = new Date();
-    return `os_data_${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
-}
-
-let currentDataKey = getTodayKey();
-let totalDataBytes = parseInt(localStorage.getItem(currentDataKey)) || 0;
-
-// 1. Horloge OS & Reset quotidien de la data
-function startClock() {
-    const clockEl = document.getElementById('osClock');
-    setInterval(() => {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        clockEl.textContent = `${hours}:${minutes}`;
-
-        const newKey = getTodayKey();
-        if (newKey !== currentDataKey) {
-            currentDataKey = newKey;
-            totalDataBytes = 0;
-            localStorage.setItem(currentDataKey, 0);
-            document.getElementById('totalDataUsage').textContent = formatTotalData(0);
-        }
-    }, 1000);
-}
-
-// 2. Formatage Data
-function formatBytes(bytesSpeed) {
-    if (bytesSpeed < 1024) return `${Math.round(bytesSpeed)} o/s`;
-    else if (bytesSpeed < 1024 * 1024) return `${(bytesSpeed / 1024).toFixed(1)} Ko/s`;
-    else return `${(bytesSpeed / (1024 * 1024)).toFixed(2)} Mo/s`;
-}
-
-function formatTotalData(bytes) {
-    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} Ko`;
-    else if (bytes < 1024 * 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(2)} Mo`;
-    else return `${(bytes / (1024 * 1024 * 1024)).toFixed(2)} Go`;
-}
 
 // 3. Modèle Principal & Rendu Vidéos
 async function template() {
@@ -150,8 +107,6 @@ function onPlayerReady(event, videoID) {
 }
 
 function onPlayerStateChange(event) {
-    checkAllPlayersState();
-
     let isAnyPlaying = false;
     players.forEach(p => {
         if (p && typeof p.getPlayerState === 'function' && p.getPlayerState() === 1) {
@@ -197,65 +152,7 @@ window.toggleFavorite = function(videoID, btn) {
     }
 };
 
-// 5. Moniteur Réseau
-function checkAllPlayersState() {
-    if (!isNetMonitorEnabled) {
-        stopGlobalMonitor();
-        return;
-    }
-
-    let isAnyPlaying = false;
-    players.forEach(p => {
-        if (p && typeof p.getPlayerState === 'function') {
-            if (p.getPlayerState() === 1) isAnyPlaying = true;
-        }
-    });
-
-    if (isAnyPlaying) startGlobalMonitor();
-    else stopGlobalMonitor();
-}
-
-function startGlobalMonitor() {
-    if (globalNetInterval || !isNetMonitorEnabled) return;
-
-    const monitor = document.getElementById('globalNetMonitor');
-    const downBar = monitor.querySelector('.down-bar');
-    const upBar = monitor.querySelector('.up-bar');
-    const downVal = monitor.querySelector('.down-val');
-    const upVal = monitor.querySelector('.up-val');
-    const dataDisplay = document.getElementById('totalDataUsage');
-
-    globalNetInterval = setInterval(() => {
-        const bytesDown = Math.floor(Math.random() * (2500 * 1024 - 150 * 1024)) + (150 * 1024);
-        const bytesUp = Math.floor(Math.random() * (100 * 1024 - 10 * 1024)) + (10 * 1024);
-
-        totalDataBytes += bytesDown + bytesUp;
-        localStorage.setItem(currentDataKey, totalDataBytes);
-        dataDisplay.textContent = formatTotalData(totalDataBytes);
-
-        const maxScale = 3 * 1024 * 1024;
-        downBar.style.width = `${Math.min((bytesDown / maxScale) * 100, 100)}%`;
-        upBar.style.width = `${Math.min((bytesUp / (200 * 1024)) * 100, 100)}%`;
-
-        downVal.textContent = formatBytes(bytesDown);
-        upVal.textContent = formatBytes(bytesUp);
-    }, 600);
-}
-
-function stopGlobalMonitor() {
-    clearInterval(globalNetInterval);
-    globalNetInterval = null;
-
-    const monitor = document.getElementById('globalNetMonitor');
-    if (monitor) {
-        monitor.querySelector('.down-bar').style.width = '0%';
-        monitor.querySelector('.up-bar').style.width = '0%';
-        monitor.querySelector('.down-val').textContent = '0 o/s';
-        monitor.querySelector('.up-val').textContent = '0 o/s';
-    }
-}
-
-// 6. Wallpaper
+// 5. Wallpaper
 function applyWallpaper(bgData) {
     const resetBtn = document.getElementById('bgResetBtn');
     if (bgData) {
@@ -294,9 +191,13 @@ function promptForUserName() {
     const nameDisplay = document.getElementById('userNameDisplay');
     const modalUserName = document.getElementById('modalUserName');
     const avatarImg = document.getElementById('profileAvatarImg');
-    
-    const inputName = prompt("Entrez votre nom / pseudo :", userName || "");
-    if (inputName !== null && inputName.trim() !== "") {
+
+    let inputName = userName || 'Invité';
+    if (typeof window.prompt === 'function') {
+        inputName = window.prompt("Entrez votre nom / pseudo :", userName || "") || userName || 'Invité';
+    }
+
+    if (inputName && inputName.trim() !== "") {
         userName = inputName.trim();
         localStorage.setItem('os_user_name', userName);
         nameDisplay.textContent = userName;
@@ -306,6 +207,11 @@ function promptForUserName() {
             const nameQuery = encodeURIComponent(userName);
             avatarImg.src = `https://ui-avatars.com/api/?name=${nameQuery}&background=2563eb&color=fff`;
         }
+    } else {
+        userName = 'Invité';
+        localStorage.setItem('os_user_name', userName);
+        nameDisplay.textContent = userName;
+        if (modalUserName) modalUserName.textContent = userName;
     }
 }
 
@@ -355,9 +261,7 @@ avatarInput.addEventListener('change', (e) => {
 
 // 8. Application de l'état initial
 function applyInitialState() {
-    startClock();
     initUserProfile();
-    document.getElementById('totalDataUsage').textContent = formatTotalData(totalDataBytes);
 
     if (isDarkMode) {
         document.body.classList.add('sombre');
@@ -365,20 +269,6 @@ function applyInitialState() {
     }
 
     applyWallpaper(customBgImage);
-
-    const monitorElement = document.getElementById('globalNetMonitor');
-    const header = document.getElementById('mainHeader');
-    const netText = document.getElementById('netText');
-
-    if (isNetMonitorEnabled) {
-        monitorElement.classList.add('visible');
-        header.classList.add('net-active');
-        netText.textContent = "Réseau: ON";
-    } else {
-        monitorElement.classList.remove('visible');
-        header.classList.remove('net-active');
-        netText.textContent = "Réseau: OFF";
-    }
 }
 
 // Événements
@@ -394,28 +284,6 @@ btnMode.addEventListener('click', () => {
     document.body.classList.toggle('sombre');
     document.getElementById('modeText').textContent = isDarkMode ? "Sun" : "Moon";
     localStorage.setItem('os_darkMode', isDarkMode);
-});
-
-const netBtn = document.querySelector('#netMonitorToggle');
-netBtn.addEventListener('click', () => {
-    isNetMonitorEnabled = !isNetMonitorEnabled;
-    localStorage.setItem('os_netMonitor', isNetMonitorEnabled);
-
-    const monitorElement = document.getElementById('globalNetMonitor');
-    const header = document.getElementById('mainHeader');
-    const netText = document.getElementById('netText');
-
-    if (isNetMonitorEnabled) {
-        monitorElement.classList.add('visible');
-        header.classList.add('net-active');
-        netText.textContent = "Réseau: ON";
-        checkAllPlayersState();
-    } else {
-        monitorElement.classList.remove('visible');
-        header.classList.remove('net-active');
-        netText.textContent = "Réseau: OFF";
-        stopGlobalMonitor();
-    }
 });
 
 const favBtn = document.querySelector('#favFilterToggle');

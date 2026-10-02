@@ -24,71 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================
-       2. COMPTEUR DE TEMPS D'ÉTUDE & SYSTÈME D'ÉTOILES
-       ========================================== */
-    const studyTimeDisplay = document.getElementById('studyTimeDisplay');
-    const starsDisplay = document.getElementById('starsDisplay');
-    const todayStr = new Date().toISOString().split('T')[0];
-
-    // Temps du jour
-    let savedDate = localStorage.getItem('studyTimeDate');
-    let studySeconds = parseInt(localStorage.getItem('studyTimeSeconds') || '0', 10);
-
-    // Étoiles et progression (15 min = 900 secondes)
-    let totalStars = parseInt(localStorage.getItem('totalUserStars') || '0', 10);
-    let starProgress = parseInt(localStorage.getItem('starProgressSeconds') || '0', 10);
-
-    // Réinitialisation du temps du jour si la date a changé
-    if (savedDate !== todayStr) {
-        studySeconds = 0;
-        localStorage.setItem('studyTimeDate', todayStr);
-        localStorage.setItem('studyTimeSeconds', '0');
-    }
-
-    function updateDisplay() {
-        // Affichage du temps
-        const hours = Math.floor(studySeconds / 3600);
-        const minutes = Math.floor((studySeconds % 3600) / 60);
-        if (studyTimeDisplay) {
-            studyTimeDisplay.textContent = `${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m`;
-        }
-
-        // Affichage des étoiles
-        if (starsDisplay) {
-            starsDisplay.textContent = `${totalStars} ⭐`;
-        }
-    }
-
-    // Incrémentation chaque seconde
-    setInterval(() => {
-        studySeconds++;
-        starProgress++;
-
-        // Sauvegarde du temps du jour
-        localStorage.setItem('studyTimeSeconds', studySeconds);
-
-        // Déblocage d'une étoile toutes les 15 minutes (900s)
-        if (starProgress >= 900) {
-            totalStars++;
-            starProgress = 0; // Réinitialise la tranche de 15 minutes
-
-            localStorage.setItem('totalUserStars', totalStars);
-            localStorage.setItem('starProgressSeconds', starProgress);
-
-            // Message de félicitations
-            alert(`🎉 Félicitations ! Vous avez étudié pendant 15 minutes et gagné 1 nouvelle étoile ! (Total : ${totalStars} ⭐)`);
-        } else {
-            localStorage.setItem('starProgressSeconds', starProgress);
-        }
-
-        updateDisplay();
-    }, 1000);
-
-    updateDisplay();
-
-
-    /* ==========================================
-       3. BLOC-NOTES INTELLIGENT
+       2. BLOC-NOTES INTELLIGENT
        ========================================== */
     const notesBtn = document.getElementById('notesBtn');
     const notesModal = document.getElementById('notesModal');

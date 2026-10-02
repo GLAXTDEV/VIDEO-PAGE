@@ -32,21 +32,6 @@
       <img src="icon.svg" alt="logo">
       <span id="headerTitle">DOCS 2025</span>
     </h2>
-    
-    <div class="os-clock" id="osClock">00:00</div>
-
-    <div class="net-monitor-header" id="globalNetMonitor">
-      <div class="net-row down">
-        <i class="fa-solid fa-arrow-down"></i>
-        <div class="net-bar-bg"><div class="net-bar-fill down-bar"></div></div>
-        <span class="net-val down-val">0 o/s</span>
-      </div>
-      <div class="net-row up">
-        <i class="fa-solid fa-arrow-up"></i>
-        <div class="net-bar-bg"><div class="net-bar-fill up-bar"></div></div>
-        <span class="net-val up-val">0 o/s</span>
-      </div>
-    </div>
 
     <ul class="menu">
       <span class="material-symbols-outlined">Menu</span>
@@ -69,7 +54,6 @@
       <h2><i class="fas fa-cog"></i> Settings<span class="material-symbols-outlined" id="seting">settings</span></h2>
       <ul class="MIUI">
         <li id="modeBouton"><i class="fa-solid fa-moon"></i> <p id="modeText">Moon</p></li>
-        <li id="netMonitorToggle"><i class="fa-solid fa-wifi"></i> <p id="netText">Réseau: OFF</p></li>
         <li id="favFilterToggle"><i class="fa-solid fa-star"></i> <p id="favText">Voir Favoris</p></li>
         
         <!-- MODE ZEN / FULL FOCUS -->
@@ -87,12 +71,6 @@
             <i class="fa-solid fa-layer-group"></i> 
             <p>Flashcards</p>
         </li>
-
-        <!-- OPTION MUSIQUE D'ÉTUDE -->
-        <li id="musicStudyBtn">
-            <i class="fa-solid fa-headphones"></i> 
-            <p>Musique d'étude</p>
-        </li>
         
         <li id="notifToggleBtn">
           <i class="fa-solid fa-bell"></i> 
@@ -109,20 +87,6 @@
             <p>Retirer Wallpaper</p>
         </li>
       </ul>
-      
-      <!-- STATISTIQUES DATA, TEMPS D'ÉTUDE ET ÉTOILES -->
-      <div class="data-usage-box">
-        <p><i class="fa-solid fa-chart-pie"></i> Data du jour :</p>
-        <span id="totalDataUsage">0 Mo</span>
-      </div>
-      <div class="data-usage-box study-box">
-        <p><i class="fa-solid fa-stopwatch"></i> Temps d'étude du jour :</p>
-        <span id="studyTimeDisplay">00h 00m</span>
-      </div>
-      <div class="data-usage-box star-box">
-        <p><i class="fa-solid fa-star" style="color: #f59e0b;"></i> Étoiles gagnées :</p>
-        <span id="starsDisplay">0 ⭐</span>
-      </div>
 
     </div>
   </div> 
@@ -144,63 +108,6 @@
       <div class="modal-footer">
         <button id="changeAvatarFromModalBtn"><i class="fa-solid fa-camera"></i> Changer la photo</button>
         <input type="file" id="avatarInput" accept="image/*" style="display: none;">
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL LECTEUR MUSIQUE D'ÉTUDE -->
-  <div id="musicModal" class="avatar-modal">
-    <div class="modal-backdrop" id="musicModalBackdrop"></div>
-    <div class="modal-card music-card">
-      <div class="modal-header">
-        <span><i class="fa-solid fa-compact-disc"></i> Musique d'Étude</span>
-        <button id="closeMusicModalBtn"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      
-      <div class="music-body">
-        <div class="track-display">
-          <i class="fa-solid fa-music cd-icon" id="cdIcon"></i>
-          <p id="currentTrackTitle">Aucune musique chargée</p>
-        </div>
-
-        <audio id="audioPlayer"></audio>
-
-        <div class="player-controls">
-          <button id="prevTrackBtn"><i class="fa-solid fa-backward-step"></i></button>
-          <button id="playPauseBtn" class="play-main"><i class="fa-solid fa-play"></i></button>
-          <button id="nextTrackBtn"><i class="fa-solid fa-forward-step"></i></button>
-        </div>
-
-        <!-- MIXEUR AUDIO DOUBLE VOLUME -->
-        <div class="audio-mixer">
-          <div class="volume-control-group">
-            <div class="volume-label">
-              <span><i class="fa-solid fa-tv"></i> Vidéo</span>
-              <span id="videoVolPercent" class="vol-val">100%</span>
-            </div>
-            <input type="range" id="videoVolumeSlider" min="0" max="100" value="100" class="harmony-slider">
-          </div>
-
-          <div class="volume-control-group">
-            <div class="volume-label">
-              <span><i class="fa-solid fa-headphones"></i> Musique</span>
-              <span id="musicVolPercent" class="vol-val">50%</span>
-            </div>
-            <input type="range" id="musicVolumeSlider" min="0" max="100" value="50" class="harmony-slider">
-          </div>
-        </div>
-
-        <div class="playlist-container">
-          <p class="playlist-title">Ma Liste (ajoute tes musiques)</p>
-          <ul id="playlistView"></ul>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <label for="musicInput" class="add-music-btn">
-          <i class="fa-solid fa-plus"></i> Ajouter des fichiers
-        </label>
-        <input type="file" id="musicInput" accept="audio/*" multiple style="display: none;">
       </div>
     </div>
   </div>
@@ -267,9 +174,7 @@
     
   <script src="index.js"></script>
   <script src="bar.js"></script>
-  <script src="music.js"></script>
   <script src="notif.js"></script>
-  <script src="controlVol.js"></script>
   <script src="other.js"></script>
   <script src="study.js"></script>
 </body>
